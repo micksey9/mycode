@@ -1,0 +1,6 @@
+---
+ - name: First Error Handling
+   hosts: all
+
+   tasks:
+
