@@ -1,0 +1,26 @@
+---
+ - name: playing with lists
+   hosts: localhost
+   gather_facts: false
+
+   vars: 
+       my_stuff:
+               - sandwich
+               - bread
+               - cheese
+
+   tasks:
+        - name: Learning more about debug module
+          debug:
+               msg: "Debug module allows us to print to the screen --> {{ item }}"
+          with_items:
+          - "1) A hyphen represents an item on a list"
+          - "2) So the second item on list is this"
+          - "3) Whereas this would be the third"
+          - "4) Item var is alwaysreplaced by an item from the with_items list"          
+        
+        - name: Learning about loops
+          debug:
+               msg: "This is a different way to use loop --> {{ item }}"
+          loop:
+               "{{ my_stuff }}"

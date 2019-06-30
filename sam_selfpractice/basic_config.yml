@@ -1,0 +1,25 @@
+---
+ - name: Making a temporary directory in specified hosts and downloading iputils package"
+   hosts: all
+   gather_facts: true
+
+   tasks:
+        - name: Making temporary directory in specified host
+          command: mkdir another_one
+                 - mv rand.txt another_one
+
+        - name: Checking the status of previous commands
+          command: 
+          ## with_items:
+                 - ls
+                 - cat sam/rand.txt
+          register: results
+
+        - name: Downloading iputils package
+          apt: 
+             name: iputils-ping
+             state: present
+
+        - name: Printing out result if directory got created
+          debug:
+               vars: results

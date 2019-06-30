@@ -1,0 +1,15 @@
+---
+ - name: Using our new module
+   hosts: localhost
+
+   tasks:
+        - name: Hughes Module
+          my_new_test_module:
+                            name: Hughes
+                            new: True
+                            turtle: Snapping
+          register: results
+
+        - name: What is in the results?
+          debug:
+                            var: results
